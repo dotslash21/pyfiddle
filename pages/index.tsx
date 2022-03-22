@@ -11,7 +11,14 @@ const Home: NextPage = () => {
     console.log(code);
   };
 
-  return <Editor onRun={onRun} />;
+  return (
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 gap-4">
+        <Editor onRun={onRun} />
+        <Output value={"Hello, World!"} />
+      </div>
+    </div>
+  );
 };
 
 export default Home;
