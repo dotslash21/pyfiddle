@@ -1,13 +1,17 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
+import dynamic from "next/dynamic";
+import Output from "../components/output/output";
+
+const Editor = dynamic(() => import("../components/editor/editor"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  )
-}
+  const onRun = (code: string) => {
+    console.log(code);
+  };
 
-export default Home
+  return <Editor onRun={onRun} />;
+};
+
+export default Home;
